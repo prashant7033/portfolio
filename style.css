@@ -36,6 +36,8 @@ body {
 .profile_name {
   float: left;
   padding-left: 2cm;
+  color: #eee7e7;
+  
   /* Add the styles here */
 }
 
@@ -45,6 +47,7 @@ body {
   display: flex;
   align-items: center;
   flex-direction: row;
+  color: #eee7e7;
 }
 
 .contact_info img {
