@@ -47,7 +47,7 @@ body {
   display: flex;
   align-items: center;
   flex-direction: row;
-  color:#fff;
+  color:white;
 }
 
 .contact_info img {
