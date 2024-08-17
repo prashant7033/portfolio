@@ -27,3 +27,193 @@
 
 </html>
 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prashant Shrestha-Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Additional styles for the navigation bar */
+    .nav-link {
+      transition: color 0.3s;
+    }
+
+    .nav-link:hover {
+      color: #63b3ed;
+    }
+
+    /* Hide skill details by default */
+    .skill-detail {
+      display: none;
+    }
+
+    /* Additional styles for skill cards */
+    .skill-card {
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .skill-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .skill-card i {
+      transition: color 0.3s;
+    }
+
+    .skill-card:hover i {
+      color: #1d4ed8;
+      /* Change this color as per your theme */
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Navigation Bar -->
+  <nav class=" bg-green-500 text-white fixed w-full top-0 left-0 shadow-lg">
+    <div class="container mx-auto flex items-center justify-between p-4">
+      <!-- Left Side: Personal Information -->
+      <div class="text-left text-sm">
+        <div class="text-md font-bold">Prashant Shrestha</div>
+        <a href="mailto:prastha854@gmail.com" class="block hover:text-blue-400">
+            <i class="fas fa-envelope"></i> prastha854@gmail.com
+        </a>
+        <a href="tel:+1234567890" class="block hover:text-blue-400">
+            <i class="fas fa-phone"></i> 9818851463
+        </a>
+    </div>
+    
+      <!-- Right Side: Navigation Links -->
+      <div class="flex items-center space-x-4 text-sm justify-center">
+        <a href="#about" class="nav-link hover:text-blue-400 font-bold">About</a>
+        <a href="#education" class="nav-link hover:text-blue-400 font-bold">Education</a>
+        <a href="#skills" class="nav-link hover:text-blue-400 font-bold">Skills</a>
+        <a href="your-cv.pdf" download class="nav-link hover:text-blue-400 font-bold">Download CV</a>
+    </div>
+    
+    </div>
+  </nav>
+
+  <main class="pt-20 container mx-auto p-6">
+    <!-- About Me -->
+    <section id="about" class="flex flex-col items-center mt-8">
+      <img src="pic.jpg" alt="Your Photo" class="w-32 h-32 rounded-full border-4 border-gray-300">
+      <h2 class="text-2xl font-semibold mt-4">About Me</h2>
+      <p class="text-center mt-2 max-w-lg" style="text-align: justify;">I am a computer graduate student and
+        I have keen interest in building
+        scalable and efficient applications. I thrive on tackling challenges and enjoy crafting elegant solutions to
+        complex problems. I'm dedicated to continuous learning and staying up-to-date with the latest technologies in
+        the rapidly evolving world of web development.</p>
+    </section>
+
+
+    <!-- Education -->
+    <section id="education" class="mt-8">
+      <h2 class="text-2xl font-semibold mb-4">Education</h2>
+      <ul class="list-disc list-inside ml-5">
+        <li>Computer Engineering-Pokhara University</li>
+        <li>+2(Science)-NEB</li>
+        <li>SLC-Nepal Government</li>
+        <!-- Add more education details here -->
+        <!-- Add more education details here -->
+      </ul>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="mt-8">
+      <h2 class="text-2xl font-semibold mb-4">Skills</h2>
+      <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
+        <div class="bg-white p-4 rounded shadow text-center skill-card" data-skill="html">
+          <i class="fab fa-html5 text-red-500 text-4xl"></i>
+          <h3 class="text-lg font-medium mt-2">HTML</h3>
+        </div>
+        <div class="bg-white p-4 rounded shadow text-center skill-card" data-skill="css">
+          <i class="fab fa-css3-alt text-blue-500 text-4xl"></i>
+          <h3 class="text-lg font-medium mt-2">CSS</h3>
+        </div>
+        <!-- <div class="bg-white p-4 rounded shadow text-center skill-card" data-skill="tailwind">
+          <i class="fab fa-css3-alt text-blue-500 text-4xl"></i>
+          <h3 class="text-lg font-medium mt-2">Tailwind CSS</h3>
+        </div> -->
+        <div class="bg-white p-4 rounded shadow text-center skill-card" data-skill="js">
+          <i class="fab fa-js text-yellow-500 text-4xl"></i>
+          <h3 class="text-lg font-medium mt-2">JavaScript</h3>
+        </div>
+        <div class="bg-white p-4 rounded shadow text-center skill-card" data-skill="react">
+          <i class="fab fa-react text-blue-600 text-4xl"></i>
+          <h3 class="text-lg font-medium mt-2">React</h3>
+      </div>
+        <div class="bg-white p-4 rounded shadow text-center skill-card" data-skill="node">
+          <i class="fab fa-node text-green-500 text-4xl"></i>
+          <h3 class="text-lg font-medium mt-2">Node.js</h3>
+        </div>
+        
+      
+      </div>
+      <!-- Skill Details -->
+      <div class="skill-detail bg-white p-6 rounded shadow mt-8" id="html-detail">
+        <h3 class="text-xl font-semibold mb-2">HTML</h3>
+        <p>Description of your HTML skills and experience.</p>
+      </div>
+      <div class="skill-detail bg-white p-6 rounded shadow mt-8" id="css-detail">
+        <h3 class="text-xl font-semibold mb-2">CSS</h3>
+        <p>Description of your CSS skills and experience.</p>
+      </div>
+      <!-- <div class="skill-detail bg-white p-6 rounded shadow mt-8" id="tailwind-detail">
+        <h3 class="text-xl font-semibold mb-2">Tailwind CSS</h3>
+        <p>Description of your Tailwind CSS skills and experience.</p>
+      </div> -->
+      <div class="skill-detail bg-white p-6 rounded shadow mt-8" id="js-detail">
+        <h3 class="text-xl font-semibold mb-2">JavaScript</h3>
+        <p>Description of your JavaScript skills and experience.</p>
+      </div>
+      <div class="skill-detail bg-white p-6 rounded shadow mt-8" id="react-detail">
+        <h3 class="text-xl font-semibold mb-2">React</h3>
+        <p>Description of your React skills and experience.</p>
+      </div>
+      <div class="skill-detail bg-white p-6 rounded shadow mt-8" id="node-detail">
+        <h3 class="text-xl font-semibold mb-2">Node.js</h3>
+        <p>Description of your Node.js skills and experience.</p>
+      </div>
+      
+    </section>
+
+  </main>
+
+  <footer class="bg-gray-900 text-white text-center py-4 mt-8">
+    <p id="footer-text"></p>
+  </footer>
+
+  <script>
+    // JavaScript to update the copyright year and current date
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = today.toLocaleString('default', { month: 'long' });
+    const day = today.getDate();
+
+    document.getElementById('footer-text').innerHTML = `&copy; ${year} Prashant Shrestha.All rights reserved.`;
+
+    // JavaScript to toggle skill details
+    const skillCards = document.querySelectorAll('.skill-card');
+    skillCards.forEach(card => {
+      card.addEventListener('click', () => {
+        // Hide all skill details
+        document.querySelectorAll('.skill-detail').forEach(detail => {
+          detail.style.display = 'none';
+        });
+        // Show the clicked skill detail
+        const skillId = card.getAttribute('data-skill');
+        document.getElementById(`${skillId}-detail`).style.display = 'block';
+      });
+    });
+  </script>
+
+</body>
+
+</html>
