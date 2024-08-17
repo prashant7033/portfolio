@@ -93,6 +93,7 @@
       padding: 20px;
       height: 100%;
       overflow-y: auto;
+      position: relative;
     }
 
     .drawer-close {
@@ -101,6 +102,30 @@
       left: 20px;
       font-size: 24px;
       cursor: pointer;
+      z-index: 25;
+    }
+
+    .drawer-links {
+      margin-left: 40px; /* Shift the links to the left */
+    }
+
+    /* Overlay Styles */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(39, 174, 96, 0.8); /* Adjusted for the green color overlay */
+      transition: opacity 0.3s;
+      opacity: 0;
+      z-index: 15;
+      pointer-events: none;
+    }
+
+    .overlay.show {
+      opacity: 1;
+      pointer-events: auto;
     }
   </style>
 </head>
@@ -136,14 +161,19 @@
     </div>
   </nav>
 
+  <!-- Overlay -->
+  <div id="overlay" class="overlay"></div>
+
   <!-- Drawer -->
   <div id="drawer" class="drawer">
     <div class="drawer-content">
       <span id="drawer-close" class="drawer-close">&times;</span>
-      <a href="#about" class="block nav-link hover:text-blue-400 font-bold py-2">About</a>
-      <a href="#education" class="block nav-link hover:text-blue-400 font-bold py-2">Education</a>
-      <a href="#skills" class="block nav-link hover:text-blue-400 font-bold py-2">Skills</a>
-      <a href="your-cv.pdf" download class="block nav-link hover:text-blue-400 font-bold py-2">Download CV</a>
+      <div class="drawer-links">
+        <a href="#about" class="block nav-link hover:text-blue-400 font-bold py-2">About</a>
+        <a href="#education" class="block nav-link hover:text-blue-400 font-bold py-2">Education</a>
+        <a href="#skills" class="block nav-link hover:text-blue-400 font-bold py-2">Skills</a>
+        <a href="your-cv.pdf" download class="block nav-link hover:text-blue-400 font-bold py-2">Download CV</a>
+      </div>
     </div>
   </div>
 
@@ -216,7 +246,6 @@
         <p>Description of your Node.js skills and experience.</p>
       </div>
     </section>
-
   </main>
 
   <footer class="bg-gray-900 text-white text-center py-4 mt-8">
@@ -224,7 +253,7 @@
   </footer>
 
   <script>
-    // JavaScript to update the copyright year and current date
+    // JavaScript to update the copyright year
     const today = new Date();
     const year = today.getFullYear();
 
@@ -248,19 +277,23 @@
     const menuBtn = document.getElementById('menu-btn');
     const drawer = document.getElementById('drawer');
     const drawerClose = document.getElementById('drawer-close');
+    const overlay = document.getElementById('overlay');
 
     menuBtn.addEventListener('click', () => {
       drawer.classList.toggle('open');
+      overlay.classList.toggle('show');
     });
 
     drawerClose.addEventListener('click', () => {
       drawer.classList.remove('open');
+      overlay.classList.remove('show');
     });
 
     // Close drawer if clicking outside of it
     document.addEventListener('click', (event) => {
-      if (!drawer.contains(event.target) && !menuBtn.contains(event.target)) {
+      if (!drawer.contains(event.target) && !menuBtn.contains(event.target) && !overlay.contains(event.target)) {
         drawer.classList.remove('open');
+        overlay.classList.remove('show');
       }
     });
   </script>
