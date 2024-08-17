@@ -33,7 +33,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prashant Shrestha-Portfolio</title>
+  <title>Prashant Shrestha - Portfolio</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -70,65 +70,108 @@
       color: #1d4ed8;
       /* Change this color as per your theme */
     }
+
+    /* Drawer Styles */
+    .drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 100%;
+      background: #fff;
+      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+      transition: width 0.3s;
+      z-index: 20;
+      overflow-x: hidden;
+    }
+
+    .drawer.open {
+      width: 250px;
+    }
+
+    .drawer-content {
+      padding: 20px;
+      height: 100%;
+      overflow-y: auto;
+    }
+
+    .drawer-close {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 24px;
+      cursor: pointer;
+    }
   </style>
 </head>
 
 <body class="bg-gray-100 text-gray-800">
 
   <!-- Navigation Bar -->
-  <nav class=" bg-green-500 text-white fixed w-full top-0 left-0 shadow-lg">
+  <nav class="bg-green-500 text-white fixed w-full top-0 left-0 shadow-lg z-10">
     <div class="container mx-auto flex items-center justify-between p-4">
       <!-- Left Side: Personal Information -->
-      <div class="text-left text-sm">
+      <div class="text-left text-sm mb-4 sm:mb-0">
         <div class="text-md font-bold">Prashant Shrestha</div>
         <a href="mailto:prastha854@gmail.com" class="block hover:text-blue-400">
-            <i class="fas fa-envelope"></i> prastha854@gmail.com
+          <i class="fas fa-envelope"></i> prastha854@gmail.com
         </a>
-        <a href="tel:+1234567890" class="block hover:text-blue-400">
-            <i class="fas fa-phone"></i> 9818851463
+        <a href="tel:9818851463" class="block hover:text-blue-400">
+          <i class="fas fa-phone"></i> 9818851463
         </a>
-    </div>
-    
+      </div>
+
+      <!-- Right Side: Menu Button -->
+      <button id="menu-btn" class="text-white sm:hidden focus:outline-none">
+        <i class="fas fa-bars"></i>
+      </button>
+
       <!-- Right Side: Navigation Links -->
-      <div class="flex items-center space-x-4 text-sm justify-center">
+      <div class="hidden sm:flex items-center space-x-4 text-sm">
         <a href="#about" class="nav-link hover:text-blue-400 font-bold">About</a>
         <a href="#education" class="nav-link hover:text-blue-400 font-bold">Education</a>
         <a href="#skills" class="nav-link hover:text-blue-400 font-bold">Skills</a>
         <a href="your-cv.pdf" download class="nav-link hover:text-blue-400 font-bold">Download CV</a>
-    </div>
-    
+      </div>
     </div>
   </nav>
 
-  <main class="pt-20 container mx-auto p-6">
+  <!-- Drawer -->
+  <div id="drawer" class="drawer">
+    <div class="drawer-content">
+      <span id="drawer-close" class="drawer-close">&times;</span>
+      <a href="#about" class="block nav-link hover:text-blue-400 font-bold py-2">About</a>
+      <a href="#education" class="block nav-link hover:text-blue-400 font-bold py-2">Education</a>
+      <a href="#skills" class="block nav-link hover:text-blue-400 font-bold py-2">Skills</a>
+      <a href="your-cv.pdf" download class="block nav-link hover:text-blue-400 font-bold py-2">Download CV</a>
+    </div>
+  </div>
+
+  <main class="pt-24 sm:pt-32 container mx-auto p-6">
     <!-- About Me -->
-    <section id="about" class="flex flex-col items-center mt-8">
+    <section id="about" class="flex flex-col items-center mt-16 sm:mt-24">
       <img src="pic.jpg" alt="Profile Picture" class="w-32 h-32 rounded-full border-4 border-gray-300">
       <h2 class="text-2xl font-semibold mt-4">About Me</h2>
-      <p class="text-center mt-2 max-w-lg" style="text-align: justify;">I am a computer graduate student and
-        I have keen interest in building
-        scalable and efficient applications. I thrive on tackling challenges and enjoy crafting elegant solutions to
+      <p class="text-center mt-2 max-w-lg px-4" style="text-align: justify;">I am a computer graduate student and
+        I have a keen interest in building scalable and efficient applications. I thrive on tackling challenges and enjoy crafting elegant solutions to
         complex problems. I'm dedicated to continuous learning and staying up-to-date with the latest technologies in
         the rapidly evolving world of web development.</p>
     </section>
 
-
     <!-- Education -->
-    <section id="education" class="mt-8">
+    <section id="education" class="mt-16 sm:mt-24">
       <h2 class="text-2xl font-semibold mb-4">Education</h2>
-      <ul class="list-disc list-inside ml-5">
-        <li>Computer Engineering-Pokhara University</li>
-        <li>+2(Science)-NEB</li>
-        <li>SLC-Nepal Government</li>
-        <!-- Add more education details here -->
-        <!-- Add more education details here -->
+      <ul class="list-disc list-inside ml-5 px-4">
+        <li>Computer Engineering - Pokhara University</li>
+        <li>+2 (Science) - NEB</li>
+        <li>SLC - Nepal Government</li>
       </ul>
     </section>
 
     <!-- Skills -->
-    <section id="skills" class="mt-8">
+    <section id="skills" class="mt-16 sm:mt-24">
       <h2 class="text-2xl font-semibold mb-4">Skills</h2>
-      <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 px-4">
         <div class="bg-white p-4 rounded shadow text-center skill-card" data-skill="html">
           <i class="fab fa-html5 text-red-500 text-4xl"></i>
           <h3 class="text-lg font-medium mt-2">HTML</h3>
@@ -137,10 +180,6 @@
           <i class="fab fa-css3-alt text-blue-500 text-4xl"></i>
           <h3 class="text-lg font-medium mt-2">CSS</h3>
         </div>
-        <!-- <div class="bg-white p-4 rounded shadow text-center skill-card" data-skill="tailwind">
-          <i class="fab fa-css3-alt text-blue-500 text-4xl"></i>
-          <h3 class="text-lg font-medium mt-2">Tailwind CSS</h3>
-        </div> -->
         <div class="bg-white p-4 rounded shadow text-center skill-card" data-skill="js">
           <i class="fab fa-js text-yellow-500 text-4xl"></i>
           <h3 class="text-lg font-medium mt-2">JavaScript</h3>
@@ -148,40 +187,34 @@
         <div class="bg-white p-4 rounded shadow text-center skill-card" data-skill="react">
           <i class="fab fa-react text-blue-600 text-4xl"></i>
           <h3 class="text-lg font-medium mt-2">React</h3>
-      </div>
+        </div>
         <div class="bg-white p-4 rounded shadow text-center skill-card" data-skill="node">
           <i class="fab fa-node text-green-500 text-4xl"></i>
           <h3 class="text-lg font-medium mt-2">Node.js</h3>
         </div>
-        
-      
       </div>
+
       <!-- Skill Details -->
-      <div class="skill-detail bg-white p-6 rounded shadow mt-8" id="html-detail">
+      <div class="skill-detail bg-white p-6 rounded shadow mt-8 px-4" id="html-detail">
         <h3 class="text-xl font-semibold mb-2">HTML</h3>
         <p>Description of your HTML skills and experience.</p>
       </div>
-      <div class="skill-detail bg-white p-6 rounded shadow mt-8" id="css-detail">
+      <div class="skill-detail bg-white p-6 rounded shadow mt-8 px-4" id="css-detail">
         <h3 class="text-xl font-semibold mb-2">CSS</h3>
         <p>Description of your CSS skills and experience.</p>
       </div>
-      <!-- <div class="skill-detail bg-white p-6 rounded shadow mt-8" id="tailwind-detail">
-        <h3 class="text-xl font-semibold mb-2">Tailwind CSS</h3>
-        <p>Description of your Tailwind CSS skills and experience.</p>
-      </div> -->
-      <div class="skill-detail bg-white p-6 rounded shadow mt-8" id="js-detail">
+      <div class="skill-detail bg-white p-6 rounded shadow mt-8 px-4" id="js-detail">
         <h3 class="text-xl font-semibold mb-2">JavaScript</h3>
         <p>Description of your JavaScript skills and experience.</p>
       </div>
-      <div class="skill-detail bg-white p-6 rounded shadow mt-8" id="react-detail">
+      <div class="skill-detail bg-white p-6 rounded shadow mt-8 px-4" id="react-detail">
         <h3 class="text-xl font-semibold mb-2">React</h3>
         <p>Description of your React skills and experience.</p>
       </div>
-      <div class="skill-detail bg-white p-6 rounded shadow mt-8" id="node-detail">
+      <div class="skill-detail bg-white p-6 rounded shadow mt-8 px-4" id="node-detail">
         <h3 class="text-xl font-semibold mb-2">Node.js</h3>
         <p>Description of your Node.js skills and experience.</p>
       </div>
-      
     </section>
 
   </main>
@@ -194,10 +227,8 @@
     // JavaScript to update the copyright year and current date
     const today = new Date();
     const year = today.getFullYear();
-    const month = today.toLocaleString('default', { month: 'long' });
-    const day = today.getDate();
 
-    document.getElementById('footer-text').innerHTML = `&copy; ${year} Prashant Shrestha.All rights reserved.`;
+    document.getElementById('footer-text').innerHTML = `&copy; ${year} Prashant Shrestha. All rights reserved.`;
 
     // JavaScript to toggle skill details
     const skillCards = document.querySelectorAll('.skill-card');
@@ -211,6 +242,26 @@
         const skillId = card.getAttribute('data-skill');
         document.getElementById(`${skillId}-detail`).style.display = 'block';
       });
+    });
+
+    // Drawer functionality
+    const menuBtn = document.getElementById('menu-btn');
+    const drawer = document.getElementById('drawer');
+    const drawerClose = document.getElementById('drawer-close');
+
+    menuBtn.addEventListener('click', () => {
+      drawer.classList.toggle('open');
+    });
+
+    drawerClose.addEventListener('click', () => {
+      drawer.classList.remove('open');
+    });
+
+    // Close drawer if clicking outside of it
+    document.addEventListener('click', (event) => {
+      if (!drawer.contains(event.target) && !menuBtn.contains(event.target)) {
+        drawer.classList.remove('open');
+      }
     });
   </script>
 
